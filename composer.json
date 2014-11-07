@@ -1,5 +1,5 @@
 {
-    "name": "deviservi/wtforms",
+    "name": "wtforms/wtforms",
     "type": "library",
     "description": "WTForms for PHP",
     "keywords": ["forms","wtforms","php"],
@@ -7,7 +7,7 @@
     "authors": [
         {
             "name": "José Manuel Peso",
-            "homepage": "http://www.citiservi.es/"
+            "homepage": "https://github.com/trilopin/"
         }
     ],
     "require": {
