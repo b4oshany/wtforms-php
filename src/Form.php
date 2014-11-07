@@ -9,7 +9,6 @@ class Form
     protected $_method = null;
 
     protected $_fields = [];
-    protected $_fields = [];
     protected $_engine = null;
     protected $_tpl    = null;
     protected $_errors = null;
@@ -42,7 +41,7 @@ class Form
 
     protected function _loadFields()
     {
-        if(is_null($this->_fields)) {
+        if(count($this->_fields)==0) {
             $this->setUp();
             foreach($this->_fields as $name=>$field) {
                 $field->setName($name);
