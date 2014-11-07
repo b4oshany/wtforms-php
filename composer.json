@@ -1,0 +1,23 @@
+{
+    "name": "deviservi/wtforms",
+    "type": "library",
+    "description": "WTForms for PHP",
+    "keywords": ["forms","wtforms","php"],
+    "license": "LGPLv2",
+    "authors": [
+        {
+            "name": "José Manuel Peso",
+            "homepage": "http://www.citiservi.es/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "smarty/smarty":                 "v3.1.14"    ,
+        "phpunit/phpunit": "3.7.*"
+    },
+    "autoload": {
+        "psr-4": {"WTForms\\": "src/"}
+    }
+}
+
+
