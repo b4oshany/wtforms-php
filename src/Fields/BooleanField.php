@@ -9,6 +9,7 @@ class BooleanField extends Field
     {
         $this->widget = 'radio';
         $this->validators[] = 'boolean';
+		$this->type = 'checkbox';
         parent::__construct($label,$validators,$options);
     }
 

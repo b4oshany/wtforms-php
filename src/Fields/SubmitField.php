@@ -8,7 +8,7 @@ class SubmitField extends Field
 
     public function __construct($label,$validators=[],$options=[])
     {
-        $this->widget = new SubmitWidget();
+		$this->type = 'submit';
         parent::__construct($label,$validators,$options);
     }
 

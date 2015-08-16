@@ -2,6 +2,8 @@
 
 namespace WTForms;
 
+use WTForms\Fields\Field;
+
 
 class Form
 {
@@ -20,6 +22,36 @@ class Form
         $this->_loadFields();
     }
 
+    /**
+    * Get values of the object
+    *
+    * @return mixed, value that is stored in a class variable
+    */
+    public function __get($name) {
+        if(isset($this->$name)){
+            return $this->$name;
+        }
+        return null;
+    }
+
+    /**
+    * Update the current form property or create a new field.
+    * If the form doesn't have the given property, create a field.
+    *
+    * @param string $name, name of the class variable to be set
+    * @param string $value, value to be set to the new class variable
+    */
+    public function __set($name, $value) {
+        if($value instanceof Field){
+            if(!isset($value->name)){
+                $value->name = $name;
+            }
+            if(!isset($value->id)){
+                $value->id = $name;
+            }
+            $this->{$name} = $value;
+        }
+    }
 
     public function getUrl()
     {
@@ -61,6 +93,13 @@ class Form
 
     public function getFields()
     {
+        if(empty($this->_fields)){
+            foreach($this as $key => $value){
+                if($value instanceof WTForms\Fields\Field){
+                    array_push($this->_fields, $value);
+                }
+            }
+        }
         return $this->_fields;
     }
 

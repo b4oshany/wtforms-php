@@ -3,6 +3,7 @@
 namespace WTForms\Fields;
 
 use  WTForms\Validators\InputRequiredValidator;
+use  WTForms\Widgets\TextWidget;
 
 
 abstract class Field
@@ -10,6 +11,7 @@ abstract class Field
 
     public $id            = null;
     public $name          = null;
+	public $type		  = 'text';
     public $label         = '';
     public $help          = '';
     public $error         = '';
@@ -21,11 +23,15 @@ abstract class Field
     public $widget        = null;
     public $validators    = [];
     public $_form         = null;
+    public $attrs         = [];
 
 
     public function __construct($label)
     {
         $this->label = $label;
+		if(empty($this->widget)){
+			$this->widget = new TextWidget();			
+		}
     }
 
     public function setForm($form)
@@ -65,6 +71,10 @@ abstract class Field
         return $this;
     }
 
+    public function render(){
+        echo $this->widget->render($this);
+    }
+
     public function validators()
     {
         $validators = func_get_args();
@@ -97,6 +107,15 @@ abstract class Field
     public function value($value)
     {
         return $this->_set_property('value',$value);
+    }
+
+    /**
+     * Set additional attributes.
+     *
+     * @param $attrs array - Attributes.
+     */
+    public function attrs(array $value){
+        $this->_set_property('attrs', $value);
     }
 
     public function widget($value)

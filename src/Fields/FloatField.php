@@ -3,7 +3,6 @@
 namespace WTForms\Fields;
 
 use  WTForms\Validators\TypeValidator;
-use  WTForms\Widgets\TextWidget;
 
 class FloatField extends Field
 {
