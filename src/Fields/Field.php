@@ -11,7 +11,7 @@ abstract class Field
 
     public $id            = null;
     public $name          = null;
-	public $type		  = 'text';
+    public $type          = 'text';
     public $label         = '';
     public $help          = '';
     public $error         = '';
@@ -29,9 +29,9 @@ abstract class Field
     public function __construct($label)
     {
         $this->label = $label;
-		if(empty($this->widget)){
-			$this->widget = new TextWidget();			
-		}
+        if(empty($this->widget)){
+            $this->widget = new TextWidget();
+        }
     }
 
     public function setForm($form)
