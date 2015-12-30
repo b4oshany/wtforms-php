@@ -24,5 +24,9 @@ abstract class Widget
         return $html;
     }
 
+    public function label($field){
+        return "<label for='$field->id'>$field->label</label>";
+    }
+
 
 }

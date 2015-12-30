@@ -34,18 +34,6 @@ abstract class Field
         }
     }
 
-    public function setForm($form)
-    {
-        $this->_form = $form;
-    }
-
-    public function setName($name)
-    {
-        $this->name=$name;
-        if(is_null($this->id)) $this->id = str_replace(['[',']'], '_', $this->name);
-        return $this;
-    }
-
     public function validate()
     {
         $valid = false;
@@ -69,6 +57,12 @@ abstract class Field
         $validator = new InputRequiredValidator($this->_form,$this);
         $this->validators[get_class($validator)] = $validator;
         return $this;
+    }
+
+    public function label($show=True){
+        if($show){
+            echo $this->widget->label($this);
+        }
     }
 
     public function render(){
@@ -99,6 +93,23 @@ abstract class Field
         return $this->_set_property('help',$value);
     }
 
+    public function setForm($form)
+    {
+        $this->_form = $form;
+        return $this;
+    }
+
+    public function setName($name)
+    {
+        $this->name=$name;
+        if(is_null($this->id)) $this->id = str_replace(['[',']'], '_', $this->name);
+        return $this;
+    }
+    
+    public function set_type($type){
+        return $this->_set_property("type", $type);
+    }
+
     public function default_value($value)
     {
         return $this->_set_property('default_value',$value);
@@ -115,7 +126,7 @@ abstract class Field
      * @param $attrs array - Attributes.
      */
     public function attrs(array $value){
-        $this->_set_property('attrs', $value);
+        return $this->_set_property('attrs', $value);
     }
 
     public function widget($value)

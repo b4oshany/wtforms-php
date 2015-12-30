@@ -1,0 +1,23 @@
+{% import 'bit/twig_macro.html' as forms %}
+
+<form>
+    <div>
+        <p>Build a normal input field</p>
+        <code>{% raw %}{{forms.input_field(address_form.street)}}{% endraw %}</code>
+        {{forms.input_field(address_form.street)}}
+        <br/>
+    </div>
+    <div>
+        <p>Build a hidden input field</p>
+        <code>{% raw %}{{forms.hidden_field(address_form.street)}}{% endraw %}</code>
+        <br/>
+    </div>
+    <div>
+        <p>Build an input field with additional arguments</p>
+        <code>{% raw %}
+            {{forms.input_field(address_form.town.attrs({"placeholder":"Town or District name"}))}}
+        {% endraw %}</code>
+        {{forms.input_field(address_form.town.attrs({"placeholder":"Town or District name"}))}}
+        <br/>
+    </div>
+</form>
