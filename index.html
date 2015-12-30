@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Wtforms for PHP by b4oshany</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Wtforms for PHP</h1>
+      <h2 class="project-tagline">PHP Forms library inspired in python wtforms</h2>
+      <a href="https://github.com/b4oshany/wtforms-php" class="btn">View on GitHub</a>
+      <a href="https://github.com/b4oshany/wtforms-php/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/b4oshany/wtforms-php/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="wtforms-php" class="anchor" href="#wtforms-php" aria-hidden="true"><span class="octicon octicon-link"></span></a>wtforms-php</h1>
+
+<p>PHP Forms library inspired in python wtforms</p>
+
+<h2>
+<a id="installing-wtforms-php" class="anchor" href="#installing-wtforms-php" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing WTForms-PHP</h2>
+
+<p>There are two ways to get WTForms-PHP, i.e. by composer install or download the package manually.</p>
+
+<h4>
+<a id="get-wtforms-php-via-composer" class="anchor" href="#get-wtforms-php-via-composer" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get WTForms-PHP via composer</h4>
+
+<p>You can run the following terminal command in the root directory of your project:</p>
+
+<div class="highlight highlight-source-shell"><pre>composer install wtforms<span class="pl-cce">\w</span>tforms</pre></div>
+
+<p>or add the the following lines to your composer.json file as a requirement:</p>
+
+<div class="highlight highlight-source-shell"><pre>wtforms<span class="pl-cce">\w</span>tforms: 1.0</pre></div>
+
+<h4>
+<a id="get-wtforms-php-via-download" class="anchor" href="#get-wtforms-php-via-download" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get WTForms-PHP via download</h4>
+
+<p>You can download the latest version of the project <a href="https://github.com/b4oshany/wtforms-php/archive/v0.5.zip">here</a></p>
+
+<h2>
+<a id="using-wtforms-php-in-your-project" class="anchor" href="#using-wtforms-php-in-your-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using WTForms-PHP in your project</h2>
+
+<p>If your using composer with autoloading, you can simple use the <code>WTForms</code> namespace to load specific classes or modules from the WTForms-PHP library. For instance:</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">WTForms\Form</span>;</span>
+<span class="pl-s1"><span class="pl-k">use</span> <span class="pl-c1">WTForms\Fields\StringField</span>;</span></pre></div>
+
+<p>Otherwise, you have to manually include them by doing the following:</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">require_once</span> <span class="pl-s"><span class="pl-pds">'</span>path/to/wtforms-php/src/Form.php<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1"><span class="pl-k">require_once</span> <span class="pl-s"><span class="pl-pds">'</span>path/to/wtforms-php/src/fields/StringField.php<span class="pl-pds">'</span></span>;</span></pre></div>
+
+<h2>
+<a id="create-a-wtform-object" class="anchor" href="#create-a-wtform-object" aria-hidden="true"><span class="octicon octicon-link"></span></a>Create a WTForm Object</h2>
+
+<p>The example below is used to create form object with a list of form input fields.</p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">class</span> <span class="pl-en">AddressForm</span> <span class="pl-k">extends</span> <span class="pl-e">Form</span>{</span>
+<span class="pl-s1">    <span class="pl-k">function</span> <span class="pl-en">setUp</span>(){</span>
+<span class="pl-s1">        <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span><span class="pl-smi">_fields</span> <span class="pl-k">=</span> [</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">"</span>street<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> (<span class="pl-k">new</span> <span class="pl-c1">Fields\</span><span class="pl-c1">StringField</span>(<span class="pl-s"><span class="pl-pds">"</span>Street<span class="pl-pds">"</span></span>)),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">"</span>town<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> (<span class="pl-k">new</span> <span class="pl-c1">Fields\</span><span class="pl-c1">StringField</span>(<span class="pl-s"><span class="pl-pds">"</span>Town/District<span class="pl-pds">"</span></span>))<span class="pl-k">-&gt;</span>required(),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">"</span>parish<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> (<span class="pl-k">new</span> <span class="pl-c1">Fields\</span><span class="pl-c1">StringField</span>(<span class="pl-s"><span class="pl-pds">"</span>Parish<span class="pl-pds">"</span></span>))<span class="pl-k">-&gt;</span>required(),</span>
+<span class="pl-s1">            <span class="pl-s"><span class="pl-pds">"</span>country<span class="pl-pds">"</span></span> <span class="pl-k">=&gt;</span> (<span class="pl-k">new</span> <span class="pl-c1">Fields\</span><span class="pl-c1">StringField</span>(<span class="pl-s"><span class="pl-pds">"</span>Country<span class="pl-pds">"</span></span>))<span class="pl-k">-&gt;</span>required(),</span>
+<span class="pl-s1">        ]</span>
+<span class="pl-s1">    }</span>
+<span class="pl-s1">}</span></pre></div>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/b4oshany/wtforms-php">Wtforms for PHP</a> is maintained by <a href="https://github.com/b4oshany">b4oshany</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
