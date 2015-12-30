@@ -7,6 +7,12 @@ use WTForms\Widgets\SelectWidget;
 class SelectField extends Field{
     protected $_options = [];
 
+    /**
+     * Create a field object.
+     * @param string $label - Label for the field.
+     * @param array $options - Associated array of options.
+     * @uses WTForms\Widgets\SelectWidget
+     */
     public function __construct($label, $options=[])
     {
         $this->widget = new SelectWidget();

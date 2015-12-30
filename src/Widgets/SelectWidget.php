@@ -4,6 +4,11 @@ namespace WTForms\Widgets;
 
 class SelectWidget extends Widget{
 
+    /**
+     * Get the HTML options for the select field.
+     * @param WTForms\Fields\SelectField $field - Select field to get the optiosn from.
+     * @return string HTML output of the list of select options.
+     */
     public function getOptions($field){
         $options = "";
         foreach($field->options() as $key => $value){
