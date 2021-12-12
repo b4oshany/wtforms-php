@@ -2,7 +2,7 @@
 
 namespace WTForms\Fields;
 
-use WTForms\Widgets\TextAreaWidget
+use WTForms\Widgets\TextAreaWidget;
 
 class TextAreaField extends StringField
 {
