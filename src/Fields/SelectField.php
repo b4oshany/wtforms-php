@@ -4,7 +4,9 @@ namespace WTForms\Fields;
 
 use WTForms\Widgets\SelectWidget;
 
-class SelectField extends Field{
+
+class SelectField extends Field {
+
     protected $_options = [];
 
     /**
@@ -13,19 +15,18 @@ class SelectField extends Field{
      * @param array $options - Associated array of options.
      * @uses WTForms\Widgets\SelectWidget
      */
-    public function __construct($label, $options=[])
-    {
+    public function __construct($label, $options=[]) {
+        parent::__construct($label);
         $this->widget = new SelectWidget();
         $this->setOptions($options);
         $this->type = "select";
-        parent::__construct($label);
     }
 
     /**
      * Remove select option choice by key.
      */
-    public function removeOption($key){
-        if(array_key_exists($name, $this->_options)){
+    public function removeOption($key) {
+        if (array_key_exists($name, $this->_options)) {
             unset($this->_options[$key]);
         }
     }
@@ -33,7 +34,7 @@ class SelectField extends Field{
     /**
      * Add/update select option choice.
      */
-    public function addOption($key, $value){
+    public function addOption($key, $value) {
         $this->_options[$key] = $value;
     }
 
@@ -42,16 +43,17 @@ class SelectField extends Field{
      * Get select options.
      * @returns array: Associated array with the key and value of the option.
      */
-    public function options(){
+    public function options() {
         return $this->_options;
     }
 
     /**
      * Set options.
      */
-    public function setOptions($options){
+    public function setOptions($options) {
         $this->_options = $options;
     }
 
-
 }
+
+?>

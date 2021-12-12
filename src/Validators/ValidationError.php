@@ -3,7 +3,8 @@
 namespace WTForms\Validators;
 
 
-class ValidatorError extends \Exception
-{
+class ValidatorError extends \Exception {
 
 }
+
+?>

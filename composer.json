@@ -1,9 +1,9 @@
 {
-    "name": "osoobe/wtforms",
+    "name": "anzeljg/wtforms",
     "type": "library",
     "description": "WTForms for PHP",
     "keywords": ["forms","wtforms","php"],
-    "homepage": "https://github.com/b4oshany/wtforms-php",
+    "homepage": "https://github.com/anzeljg/wtforms-php",
     "license": "LGPLv2",
     "authors": [
         {
@@ -14,6 +14,11 @@
         {
             "name": "Oshane Bailey",
             "homepage": "https://github.com/b4oshany/",
+            "role": "Developer"
+        },
+        {
+            "name": "Gregor Anželj",
+            "homepage": "https://github.com/anzeljg/",
             "role": "Developer"
         }
     ],

@@ -4,6 +4,7 @@ namespace WTForms\Fields;
 
 use WTForms\Widgets\RadioWidget;
 
+
 /**
 * Blueprint for a radio field.
 * 
@@ -11,8 +12,7 @@ use WTForms\Widgets\RadioWidget;
 * @since 1.0
 * @property array _options - Options for the radio field.
 */
-class RadioField extends Field
-{
+class RadioField extends Field {
 
     /**
      * Create a field object.
@@ -20,13 +20,11 @@ class RadioField extends Field
      * @param array $options - Associated array of options.
      * @uses WTForms\Widgets\RadioWidget
      */
-    public function __construct($label, $options=[])
-    {
+    public function __construct($label, $options=[]) {
         parent::__construct($label);
         $this->setOptions($options);
         $this->widget = new RadioWidget();
         $this->type = 'radio';
-
     }
 
     /**
@@ -34,8 +32,8 @@ class RadioField extends Field
      * @param string $key - Name of the option key.
      * @return self
      */
-    public function removeOption($key){
-        if(array_key_exists($name, $this->_options)){
+    public function removeOption($key) {
+        if (array_key_exists($name, $this->_options)) {
             unset($this->_options[$key]);
         }
         return $this;
@@ -47,7 +45,7 @@ class RadioField extends Field
      * @param string $value - Value of the option.
      * @return self
      */
-    public function addOption($key, $value){
+    public function addOption($key, $value) {
         $this->_options[$key] = $value;
         return $this;
     }
@@ -57,7 +55,7 @@ class RadioField extends Field
      * Get select options.
      * @returns array - Associated array with the key and value of the option.
      */
-    public function options(){
+    public function options() {
         return $this->_options;
     }
 
@@ -66,10 +64,11 @@ class RadioField extends Field
      * @param array $options - Associated array of the field options.
      * @return self
      */
-    public function setOptions($options){
+    public function setOptions($options) {
         $this->_options = $options;
         return $this;
     }
 
-
 }
+
+?>

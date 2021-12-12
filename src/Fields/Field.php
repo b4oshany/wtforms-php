@@ -5,14 +5,14 @@ namespace WTForms\Fields;
 use  WTForms\Validators\InputRequiredValidator;
 use  WTForms\Widgets\TextWidget;
 
+
 /**
 * Abstract class for HTML form field objects.
 * 
 * @author Oshane Bailey <b4.oshany@gmail.com>
 * @since 1.0
 */
-abstract class Field
-{
+abstract class Field {
     
     /**
     * @var string $id - ID selector for the form field. Default is equal to the field name ({@see WTForms\Frields\Field::name}).
@@ -43,16 +43,14 @@ abstract class Field
     public $_form         = null;
     public $attrs         = [];
 
-
     /**
      * Create a field object.
      * @param string $label - Label for the field.
      * @uses WTForms\Widgets\TextWidget
      */
-    public function __construct($label)
-    {
+    public function __construct($label)     {
         $this->label = $label;
-        if(empty($this->widget)){
+        if(empty($this->widget)) {
             $this->widget = new TextWidget();
         }
     }
@@ -61,19 +59,20 @@ abstract class Field
      * Validate the value of the input field.
      * @return boolean
      */
-    public function validate()
-    {
+    public function validate() {
         $valid = false;
-        if(count($this->validators)==0) {
+        if (count($this->validators) == 0) {
             $valid = true;
-        } else {
-
+        }
+        else {
             foreach ($this->validators as $k=>$validator) {
-                if(!$validator->validate()) {
+                if (!$validator->validate()) {
                     $this->errors[] = $validator->error;
                 }
             }
-            if(is_null($this->errors)) $valid=true;
+            if (is_null($this->errors)) {
+                $valid=true;
+            }
         }
         return $valid;
     }
@@ -83,8 +82,7 @@ abstract class Field
      * @param boolean $required - When true, the field is set to required.
      * @return self
      */
-    public function required($required=true)
-    {
+    public function required($required=true) {
         $this->required = $required;
         $validator = new InputRequiredValidator($this->_form,$this);
         $this->validators[get_class($validator)] = $validator;
@@ -96,8 +94,8 @@ abstract class Field
      * @param boolean $show - When true, show the HTML label for the field.
      * @uses WTForms\Widgets\Widget::label()
      */
-    public function label($show=True){
-        if($show){
+    public function label($show=true) {
+        if ($show) {
             echo $this->widget->label($this);
         }
     }
@@ -105,7 +103,7 @@ abstract class Field
     /**
      * Render the HTML input field.
      */
-    public function render(){
+    public function render() {
         echo $this->widget->render($this);
     }
 
@@ -114,8 +112,7 @@ abstract class Field
      * Note: This function can accept validators as arguments {@see WTForms\Validators\Validator}
      * @return self
      */
-    public function validators()
-    {
+    public function validators() {
         $validators = func_get_args();
         foreach ($validators as $validator) {
             $validator->setField($this)->setForm($this->_form);
@@ -127,10 +124,9 @@ abstract class Field
     /**
      * Capture the POST or GET request for the field.
      */
-    public function loadRequest()
-    {
+    public function loadRequest() {
         $new_value = filter_input($input,$this->name,FILTER_SANITIZE_STRING);
-        if(!is_null($new_value)) {
+        if (!is_null($new_value)) {
             $this->value = $new_value;
         }
     }
@@ -139,8 +135,7 @@ abstract class Field
      * Set the help text for the field.
      * @return self
      */
-    public function help($value)
-    {
+    public function help($value) {
         return $this->_set_property('help',$value);
     }
 
@@ -148,8 +143,7 @@ abstract class Field
      * Set the associated form for the field.
      * @return self
      */
-    public function setForm($form)
-    {
+    public function setForm($form) {
         $this->_form = $form;
         return $this;
     }
@@ -159,10 +153,11 @@ abstract class Field
      * @param string $name - Field name.
      * @return self
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name=$name;
-        if(is_null($this->id)) $this->id = str_replace(['[',']'], '_', $this->name);
+        if (is_null($this->id)) {
+            $this->id = str_replace(['[',']'], '_', $this->name);
+        }
         return $this;
     }
     
@@ -171,7 +166,7 @@ abstract class Field
      * @param string $type - Field type.
      * @return self
      */
-    public function set_type($type){
+    public function set_type($type) {
         return $this->_set_property("type", $type);
     }
 
@@ -180,8 +175,7 @@ abstract class Field
      * @param mixed $value - Default value of the field.
      * @return self
      */
-    public function default_value($value)
-    {
+    public function default_value($value) {
         return $this->_set_property('default_value',$value);
     }
 
@@ -190,8 +184,7 @@ abstract class Field
      * @param mixed $value - Field value.
      * @return self
      */
-    public function value($value)
-    {
+    public function value($value) {
         return $this->_set_property('value',$value);
     }
 
@@ -200,7 +193,7 @@ abstract class Field
      * @param $attrs array - Associated array of HTML input attributes.
      * @return self
      */
-    public function attrs(array $value){
+    public function attrs(array $value) {
         return $this->_set_property('attrs', $value);
     }
 
@@ -209,8 +202,7 @@ abstract class Field
      * @param WTForms\Widgets\Widget $widget - Field widget.
      * @return self
      */
-    public function widget($widget)
-    {
+    public function widget($widget) {
         return $this->_set_property('widget',$widget);
     }
 
@@ -219,8 +211,7 @@ abstract class Field
      * @param string $value - HTML class sectors.
      * @return self
      */
-    public function css_class($value)
-    {
+    public function css_class($value) {
         return $this->_set_property('css_class',$value);
     }
 
@@ -229,8 +220,7 @@ abstract class Field
      * @param string value - Field id.
      * @return self
      */
-    public function id($value)
-    {
+    public function id($value) {
         return $this->_set_property('id',$value);
     }
 
@@ -240,11 +230,11 @@ abstract class Field
      * @param mixed $value - Value of the field property.
      * @return self
      */
-    protected function _set_property($name,$value)
-    {
+    protected function _set_property($name,$value) {
         $this->$name = $value;
         return $this;
     }
 
-
 }
+
+?>

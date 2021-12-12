@@ -2,7 +2,9 @@
 
 namespace WTForms\Widgets;
 
-class RadioWidget extends CheckboxWidget{
 
+class RadioWidget extends CheckboxWidget {
 
 }
+
+?>
