@@ -19,5 +19,3 @@ class TextAreaWidget extends Widget {
     }
 
 }
-
-?>

@@ -19,5 +19,3 @@ class SubmitWidget extends Widget {
     }
 
 }
-
-?>

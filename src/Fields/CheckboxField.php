@@ -20,5 +20,3 @@ class CheckboxField extends RadioField {
     }
 
 }
-
-?>

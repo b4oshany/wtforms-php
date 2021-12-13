@@ -50,5 +50,3 @@ class IntegerFieldTest extends PHPUnit_Framework_TestCase {
     }
 
 }
-
-?>

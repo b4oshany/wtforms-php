@@ -49,5 +49,3 @@ class TypeValidator extends Validator {
     }
 
 }
-
-?>

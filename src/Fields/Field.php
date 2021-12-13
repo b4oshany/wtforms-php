@@ -236,5 +236,3 @@ abstract class Field {
     }
 
 }
-
-?>

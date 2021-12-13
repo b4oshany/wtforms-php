@@ -22,5 +22,3 @@ class BooleanWidget extends Widget {
     }
 
 }
-
-?>

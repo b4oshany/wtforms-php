@@ -19,5 +19,3 @@ class StringField extends Field {
     }
 
 }
-
-?>

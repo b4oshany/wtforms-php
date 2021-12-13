@@ -15,5 +15,3 @@ class InputRequiredValidator extends Validator {
     }
 
 }
-
-?>

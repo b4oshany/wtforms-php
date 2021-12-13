@@ -19,5 +19,3 @@ class TextAreaField extends StringField {
     }
 
 }
-
-?>

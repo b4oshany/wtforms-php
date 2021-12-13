@@ -6,5 +6,3 @@ namespace WTForms;
 class Exception extends \Exception {
 
 }
-
-?>

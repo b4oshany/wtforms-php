@@ -19,5 +19,3 @@ class BooleanField extends Field {
     }
 
 }
-
-?>

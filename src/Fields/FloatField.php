@@ -15,5 +15,3 @@ class FloatField extends Field {
     }
 
 }
-
-?>

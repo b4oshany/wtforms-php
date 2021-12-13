@@ -37,5 +37,3 @@ class SelectWidget extends Widget {
     }
 
 }
-
-?>

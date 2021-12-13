@@ -55,5 +55,3 @@ class SelectField extends Field {
     }
 
 }
-
-?>

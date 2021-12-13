@@ -4,7 +4,7 @@
     "description": "WTForms for PHP",
     "keywords": ["forms","wtforms","php"],
     "homepage": "https://github.com/anzeljg/wtforms-php",
-    "license": "LGPL-2.0-only",
+    "license": "LGPLv2",
     "authors": [
         {
             "name": "José Manuel Peso",
@@ -24,7 +24,7 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "twig/twig": "~1.23"
+        "smarty/smarty": ">=3.1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.5",
