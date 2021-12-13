@@ -12,6 +12,7 @@ class TextAreaWidget extends Widget {
                 ." class='form-control $field->css_class' ";
         if ($field->required) {
             $html .= "required";
+        }
         $html .= ">";
         $html .= "$field->value";
         $html .= "</textarea>";
