@@ -1,7 +1,9 @@
 <?php
+
 namespace WTForms;
 
-trait Traits{
+trait Traits {
+
     /**
     * Set a new class variable for the current object
     *
@@ -18,7 +20,7 @@ trait Traits{
     * @return mixed, value that is stored in a class variable
     */
     public function __get($name) {
-        if(isset($this->$name)){
+        if (isset($this->$name)) {
             return $this->$name;
         }
         return null;
@@ -26,14 +28,15 @@ trait Traits{
 
 
     /**  As of PHP 5.1.0  */
-    public function __isset($name){
+    public function __isset($name) {
         return isset($this->$name);
     }
 
     /**  As of PHP 5.1.0  */
-    public function __unset($name){
-        if(isset($this->$name))
+    public function __unset($name ){
+        if(isset($this->$name)) {
             unset($this->$name);
+        }
     }
 
     /**
@@ -52,13 +55,13 @@ trait Traits{
     * @return mixed, value that is stored in a class variable
     */
     public static function getStatic($name) {
-        if(isset(static::$$name)){
+        if (isset(static::$$name)) {
             return static::$$name;
         }
         return null;
     }
 
-    public function to_array(){
+    public function to_array() {
         return get_object_vars($this);
     }
 
@@ -69,11 +72,12 @@ trait Traits{
     * @param array $data - array to be converted to the current scoped object
     * @return object - object of the current scope
     */
-    public static function quick_cast(array $data, $strictness = false){
+    public static function quick_cast(array $data, $strictness = false) {
         $object = new static();
-        foreach($data as $key => $value){
-            if(!$strictness || property_exists($object, $key))
+        foreach ($data as $key => $value) {
+            if (!$strictness || property_exists($object, $key)) {
                 $object->$key = $value;
+            }
         }
         return $object;
     }
@@ -85,26 +89,27 @@ trait Traits{
     * @param array $data - array to be converted to the current scoped object
     * @return object - object of the current scope
     */
-    public static function cast($class_name, $object){
+    public static function cast($class_name, $object) {
         return unserialize(sprintf(
-        'O:%d:"%s"%s',
-        strlen($class_name),
-        $class_name,
-        strstr(serialize($object), ':')
-    ));
+            'O:%d:"%s"%s',
+            strlen($class_name),
+            $class_name,
+            strstr(serialize($object), ':')
+        ));
     }
 
-   /**
+    /**
      * Cast an object to another class, keeping the properties, but changing the methods
      *
      * @param string $class  Class name
      * @param object $object
      * @return object
      */
-    public function populate($object, $strictness = false){
-        foreach($object as $key => $value){
-            if(!$strictness || property_exists($this, $key))
+    public function populate($object, $strictness = false) {
+        foreach($object as $key => $value) {
+            if(!$strictness || property_exists($this, $key)) {
                 $this->$key = $value;
+            }
         }
     }
     
@@ -121,5 +126,5 @@ trait Traits{
         }
         return $result;
     }
+
 }
-?>

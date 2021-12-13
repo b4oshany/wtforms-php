@@ -2,6 +2,7 @@
 
 namespace WTForms\Widgets;
 
-class HiddenWidget extends Widget
-{
+
+class HiddenWidget extends Widget {
+
 }

@@ -1,7 +1,7 @@
 wtforms-php
 ===========
 
-PHP Forms library inspired in python wtforms
+PHP WTForms library inspired by Python WTForms module
 
 ## Installing WTForms-PHP
 

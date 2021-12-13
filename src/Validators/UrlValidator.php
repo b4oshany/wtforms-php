@@ -3,16 +3,12 @@
 namespace WTForms\Validators;
 
 
-class UrlValidator extends Validator
-{
+class UrlValidator extends Validator {
 
-
-    public function validate()
-    {
+    public function validate() {
         $ret = false;
         $alpha = "\p{L}\p{N}";
-        if(is_string($this->_field->value) && !empty($this->_field->value))
-        {
+        if (is_string($this->_field->value) && !empty($this->_field->value)) {
             $urlpattern='/\b(';
             $urlpattern.='https?:\/\/'; #Scheme
             $urlpattern.="(([$alpha-]+\.)+"; #Domain
@@ -22,9 +18,12 @@ class UrlValidator extends Validator
             $urlpattern.=')\b/iu';
 
             $ret = preg_match($urlpattern,$this->_field->value);
-         }
+        }
 
-        if(!$ret) $this->error = "'{$this->_field->value}' value does not appears a valid url";
+        if (!$ret) {
+            $this->error = "'{$this->_field->value}' value does not appears a valid url";
+        }
+        
         return $ret;
     }
 

@@ -2,7 +2,7 @@
 
 namespace WTForms\Widgets;
 
-class TextWidget extends Widget{
 
+class TextWidget extends Widget {
 
 }
